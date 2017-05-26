@@ -30,7 +30,7 @@ def loadList():
 def sendText(num):
     global client
     if num is not 0:
-        client.messages.create(to="+8613162355703",
+        client.messages.create(to="+13522224358",
                                from_="+8613162355703",
                                body="There were " + str(num) + " new songs.")
 
