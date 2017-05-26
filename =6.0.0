@@ -1,0 +1,6 @@
+Requirement already satisfied: twilio in /usr/local/lib/python2.7/site-packages
+Requirement already satisfied: requests>=2.0.0 in /usr/local/lib/python2.7/site-packages (from twilio)
+Requirement already satisfied: pysocks in /usr/local/lib/python2.7/site-packages (from twilio)
+Requirement already satisfied: six in /usr/local/lib/python2.7/site-packages (from twilio)
+Requirement already satisfied: pytz in /usr/local/lib/python2.7/site-packages (from twilio)
+Requirement already satisfied: PyJWT>=1.4.2 in /usr/local/lib/python2.7/site-packages (from twilio)

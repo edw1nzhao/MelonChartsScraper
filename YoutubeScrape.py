@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup as bs
+from twilio.rest import Client
 import requests
 
+authCode = '01892c169626b397acca0b7f1d68dbc3'
+accSID = 'AC9f95cae35e07f7b38ea9069c6f74c39a'
 newList = []
 loadedList = []
 youtubeUrl = 'https://www.youtube.com'
@@ -9,6 +12,10 @@ fileName = 'downloadedSongs.txt'
 
 ######################################################
 ######################################################
+
+def loadTwilio():
+    global client
+    client = Client(accSID, authCode)
 
 def loadList():
     global loadedList
@@ -19,6 +26,13 @@ def loadList():
                 + ' songs saved.')
     except Exception as error:
         print('There was no previous file saved.')
+
+def sendText(num):
+    global client
+    if num is not 0:
+        client.messages.create(to="+8613162355703",
+                               from_="+8613162355703",
+                               body="There were " + str(num) + " new songs.")
 
 def writeList():
     global newList
@@ -35,8 +49,7 @@ def updateList():
     loadList()
 
     num = len(newList)
-    print('There are ' + str(num) + ' new songs.')
-
+    sendText(num)
     writeList()
 
 def getNewList():
@@ -55,5 +68,6 @@ def getNewList():
 ######################################################
 ######################################################
 
+loadTwilio()
 getNewList()
 updateList()
